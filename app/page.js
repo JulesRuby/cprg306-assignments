@@ -11,12 +11,12 @@ export default function Home() {
 			<nav className=''>
 				<ul className='nav-list'>
 					<li>
-						<Link href='week-2' className='text-cyan-400'>
+						<Link href='/week-2' className='text-cyan-400'>
 							Week 2 - Assignment Page
 						</Link>
 					</li>
 					<li>
-						<Link href='week-3' className='text-cyan-400'>
+						<Link href='/week-3' className='text-cyan-400'>
 							Week 3 - Assignment Page
 						</Link>
 					</li>
