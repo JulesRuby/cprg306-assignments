@@ -20,6 +20,11 @@ export default function Home() {
 							Week 3 - Assignment Page
 						</Link>
 					</li>
+					<li>
+						<Link href='/week-4' className='text-cyan-400'>
+							Week 4 - Assignment Page
+						</Link>
+					</li>
 				</ul>
 			</nav>
 		</header>
