@@ -14,7 +14,7 @@ function Page() {
 	return (
 		<main className='flex flex-col h-screen items-center justify-items-center justify-content-center p-4 max-w-2/3 mx-auto'>
 			<header className=' h-24 flex column text-2xl text-center font-bold mb-3'>
-				<h1 className='text-xl m-auto'>Week-4 : New Item</h1>
+				<h1 className='text-xl m-auto'>{`<NewItem>`} component (Part 1)</h1>
 			</header>
 
 			<NewItem />
