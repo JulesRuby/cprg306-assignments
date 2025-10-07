@@ -25,6 +25,11 @@ export default function Home() {
 							Week 4 - Assignment Page
 						</Link>
 					</li>
+					<li>
+						<Link href='/week-5' className='text-cyan-400'>
+							Week 5 - Assignment Page
+						</Link>
+					</li>
 				</ul>
 			</nav>
 		</header>
