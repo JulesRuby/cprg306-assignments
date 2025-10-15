@@ -9,14 +9,7 @@ export async function generateMetadata() {
       "Playing around with state to make an interactive stateful presentational component.",
   });
 }
-// sdlkfhslkdjhgflkjds
 
-
-
-
-
-
-// /dsjhfgajhsdgfjhadsbf
 function Page() {
   return (
     <main className="justify-content-center mx-auto flex h-screen max-w-2/3 flex-col items-center justify-items-center p-4">

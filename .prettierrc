@@ -2,6 +2,12 @@
   "plugins": ["prettier-plugin-tailwindcss"],
   "options": {
     "arrowParens": "avoid",
-    "singleAttributePerLine": true
+    "singleAttributePerLine": true,
+
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 80,
+    "tabWidth": 2
   }
 }
