@@ -18,7 +18,7 @@ function ItemList({ itemList }) {
   return (
     <section>
       <div className="mb-3 flex items-center gap-2">
-        <span class="text-sm text-gray-600">Sort by:</span>
+        <span className="text-sm text-gray-600">Sort by:</span>
         <button
           onClick={() => setSortBy("name")}
           className={`rounded border px-3 py-1 text-sm transition-colors ${
@@ -41,8 +41,13 @@ function ItemList({ itemList }) {
         </button>
       </div>
       <ul className="flex flex-col overflow-hidden">
-        {sortedItems.map(({ name, category, quantity }, idx) => (
-          <Item key={idx} name={name} category={category} quantity={quantity} />
+        {sortedItems.map(({ id, name, category, quantity }) => (
+          <Item
+            key={`item-${id}`}
+            name={name}
+            category={category}
+            quantity={quantity}
+          />
         ))}
       </ul>
     </section>
