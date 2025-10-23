@@ -2,25 +2,25 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Orbitron, Jura } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// const orbitron = Orbitron({
-//   variable: "--font-orbitron",
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
 //   subsets: ["latin"],
 // });
 
-// const jura = Jura({
-//   variable: "--font-jura",
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
 //   subsets: ["latin"],
 // });
+
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+});
+
+const jura = Jura({
+  variable: "--font-jura",
+  subsets: ["latin"],
+});
 
 // Adding in a basic dynamic metaData object for the root layout
 export const metadata = {
@@ -35,9 +35,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistMono.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${orbitron.variable} ${jura.variable} antialiased`}>
         {children}
       </body>
     </html>
