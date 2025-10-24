@@ -93,6 +93,10 @@
     text-shadow: var(--text-glow);
   }
 
+  body {
+    position: relative;
+  }
+
   body::before {
     overflow: hidden;
     position: absolute;
