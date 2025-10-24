@@ -1,8 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* TYPOGRAPHY */
+  --base-font-size: 12px;
+  --fluid-modifier: 0.9;
+  --heading-modifier: 1.1;
+
+  /* Calculate a fluid rem size */
+  --fluid-rem: calc(var(--base-font-size) + var(--fluid-modifier) * 1vw);
+
+  --my-line-height-body: 1.75;
+  --my-line-height-heading: 1.2;
+
+  --vesper: hsla(259, 48%, 20%, 1);
+  --vesper60: hsla(259, 48%, 20%, 0.6);
+  --lumo: hsla(180, 44%, 84%, 1);
+  --aether: hsla(176, 69%, 61%, 1);
+  --kinetic: rgb(87, 224, 215);
+  --kinetic30: hsla(3, 98%, 67%, 0.1);
+  --solar: hsla(29, 100%, 69%, 1);
+  --exhilarate: hsla(346, 98%, 67%, 1);
+  /* --background: #ffffff; */
+  --background: var(--vesper);
+  /* --foreground: #171717; */
+  --foreground: var(--lumo);
+
+  /* set document font-size to fluid rem, now 1rem scales with viewport
+	font-size: var(--fluid-rem); */
+
+  /* TEXT GLOW */
+  --glow-color: ;
+
+  --x: 0px;
+  --y: 0px;
+  --blur: 3px;
+  --text-glow: var(--glow-color, inherit) var(--x, 0) var(--y, 0)
+    var(--blur, 3px);
+
+  /* BG GRADIENT STYLING */
+  --terminal-gradient: linear-gradient(
+    to bottom,
+    var(--kinetic30) 0%,
+    var(--vesper60) 30%,
+    var(--vesper60) 70%,
+    var(--kinetic30) 100%
+  );
+
+  /* SCANLINES EFFECT */
+  --line-color: hsla(0, 100%, 0%, 0.15);
+  --scanlines: repeating-linear-gradient(
+    0deg,
+    var(--line-color),
+    var(--line-color) 1px,
+    transparent 1px,
+    transparent 2px
+  );
 }
 
 /* stylelint-disable-next-line */
@@ -30,15 +82,102 @@
   h4,
   h5,
   h6 {
+    color: var(--aether);
     font-family: var(--font-family-heading);
-    /* color:  */
+    line-height: var(--my-line-height-heading);
+  }
+
+  html {
+    font-size: var(--fluid-rem);
+    /* Bahahaha this makes the emojis glow too, but I'm here for it */
+    text-shadow: var(--text-glow);
+  }
+
+  body::before {
+    overflow: hidden;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0) 4.85rem,
+        rgba(0, 200, 180, 0.1) 5rem,
+        rgba(0, 0, 0, 0) 5.15rem
+      ),
+      repeating-linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0) 4.85rem,
+        rgba(0, 200, 180, 0.1) 5rem,
+        rgba(0, 0, 0, 0) 5.15rem
+      );
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0) 4.85rem,
+        rgba(0, 200, 180, 0.1) 5rem,
+        rgba(0, 0, 0, 0) 5.15rem
+      ),
+      repeating-linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0) 4.85rem,
+        rgba(0, 200, 180, 0.1) 5rem,
+        rgba(0, 0, 0, 0) 5.15rem
+      );
+    z-index: -1;
+  }
+
+  main {
+    /* Doing this in case I dislike the affect of setting this line-height at a higher scope and messing up <nav> stuff. Might not be necessary, we'll see */
+    line-height: var(--my-line-height);
+  }
+
+  .terminal-gradient-background {
+    background: var(--terminal-gradient);
+  }
+
+  /* This is all so chaotic, but I just want it inside the theming for now */
+  .blur-pane::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+  }
+
+  .scanlines::after {
+    position: absolute;
+    content: "";
+    /* display: none; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--scanlines);
+    /* background: red; */
+    pointer-events: none;
   }
 }
 
 @media (prefers-color-scheme: dark) {
+  /* That's right, jerks, it doesn't matter if you prefer light or dark-- IT'S ALL THE SAME
+  ( yes, this is simply because I don't feel like testing both of them at the moment and I always default to dark mode, so it gets priority for now)
+  */
+
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--vesper);
+    --foreground: var(--lumo);
   }
 }
 
