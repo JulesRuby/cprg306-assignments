@@ -1,5 +1,5 @@
 import items from "./items.json";
-import ItemList from "./item-list.js";
+import items from "./item-list.js";
 // for metadata for page title and description
 import { createPageMetadata } from "../../lib/metadata.js";
 
