@@ -2,15 +2,16 @@
 
 import itemsData from "./items.json";
 import ItemList from "./item-list.js";
+import NewItem from "./new-item.js";
 import { useState } from "react";
 // for metadata for page title and description
 // import { createPageMetadata } from "../../lib/metadata.js";
 
-console.log(typeof itemsData);
-console.log(Array.isArray(itemsData));
-console.log({ itemsData });
+// console.log(typeof itemsData);
+// console.log(Array.isArray(itemsData));
+// console.log({ itemsData });
 
-itemsData.forEach((item) => console.log(item));
+// itemsData.forEach((item) => console.log(item));
 
 // using next's generateMetadata function to create dynamic metadata for the page
 // export async function generateMetadata() {
@@ -31,6 +32,8 @@ function Page() {
         <h1 className="text-xl">Shopping List</h1>
       </header>
 
+      <NewItem />
+      
       <ItemList itemList={items} />
     </main>
   );
