@@ -2,39 +2,103 @@
 
 import { useState } from "react";
 
-function NewItem() {
+function NewItem({ onAddItem }) {
+  const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [category, setCategory] = useState("produce");
 
   const increment = () => {
     if (quantity < 20) setQuantity(quantity + 1);
   };
+
   const decrement = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
 
-  return (
-    <article className="flex min-h-[10rem] w-sm flex-col justify-between rounded-md bg-gray-900 p-5 text-center">
-      <p className="text-xl">Quantity: {quantity}</p>
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-      <div className="button-group flex justify-around gap-4 py-2 text-3xl text-black">
-        <button
-          type="button"
-          className="h-[3rem] w-[4rem] cursor-pointer rounded-[10%] bg-orange-300 p-1 align-middle font-bold transition duration-200 ease-in-out hover:bg-green-300 active:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400/50"
-          onClick={decrement}
-          disabled={quantity <= 1}
-        >
-          -
-        </button>
-        <button
-          type="button"
-          className="pointer size-[2rem] h-[3rem] w-[4rem] cursor-pointer rounded-[10%] bg-orange-300 p-1 font-bold transition duration-200 ease-in-out hover:bg-green-300 active:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400/50"
-          onClick={increment}
-          disabled={quantity >= 20}
-        >
-          +
-        </button>
+    const item = {
+      id: Math.random().toString(36).substring(2, 9),
+      name,
+      quantity,
+      category,
+    };
+
+    console.log(item);
+    console.log(onAddItem);
+
+    onAddItem(item);
+
+    setName("");
+    setQuantity(1);
+    setCategory("produce");
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="rounded-md bg-gray-900 p-5">
+      <div className="mb-4">
+        <label className="mb-2 block text-white">Item Name</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="w-full rounded border border-gray-700 bg-gray-800 px-3 py-2 text-white"
+          placeholder="Enter item name"
+        />
       </div>
-    </article>
+
+      <div className="mb-4">
+        <label className="mb-2 block text-white">Category</label>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="w-full rounded border border-gray-700 bg-gray-800 px-3 py-2 text-white"
+        >
+          <option value="produce">Produce</option>
+          <option value="dairy">Dairy</option>
+          <option value="bakery">Bakery</option>
+          <option value="meat">Meat</option>
+          <option value="frozen foods">Frozen Foods</option>
+          <option value="canned goods">Canned Goods</option>
+          <option value="dry goods">Dry Goods</option>
+          <option value="beverages">Beverages</option>
+          <option value="snacks">Snacks</option>
+          <option value="household">Household</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div className="mb-4">
+        <p className="mb-2 text-xl text-white">Quantity: {quantity}</p>
+        <div className="button-group flex justify-around gap-4 py-2 text-3xl text-black">
+          <button
+            type="button"
+            className="h-[3rem] w-[4rem] cursor-pointer rounded-[10%] bg-orange-300 p-1 align-middle font-bold transition duration-200 ease-in-out hover:bg-green-300 active:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400/50"
+            onClick={decrement}
+            disabled={quantity <= 1}
+          >
+            -
+          </button>
+          <button
+            type="button"
+            className="h-[3rem] w-[4rem] cursor-pointer rounded-[10%] bg-orange-300 p-1 font-bold transition duration-200 ease-in-out hover:bg-green-300 active:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400/50"
+            onClick={increment}
+            disabled={quantity >= 20}
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        className="w-full rounded bg-blue-600 px-4 py-2 font-bold text-white hover:bg-blue-700"
+      >
+        Add Item
+      </button>
+    </form>
   );
 }
 
