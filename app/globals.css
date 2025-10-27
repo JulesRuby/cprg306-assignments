@@ -12,7 +12,7 @@
   --my-line-height-body: 1.75;
   --my-line-height-heading: 1.2;
 
-  --vesper: hsla(259, 48%, 20%, 1);
+  --vesper: hsla(259, 47%, 20%, 1);
   --vesper60: hsla(259, 48%, 20%, 0.6);
   --lumo: hsla(180, 44%, 84%, 1);
   --aether: hsla(176, 69%, 61%, 1);
@@ -60,6 +60,15 @@
 }
 
 /* stylelint-disable-next-line */
+@theme {
+  --color-solar: var(--solar);
+  --color-exhilarate: var(--exhilarate);
+  --color-vesper: var(--vesper);
+  --color-lumo: var(--lumo);
+  --color-aether: var(--aether);
+  --color-kinetic: var(--kinetic);
+}
+
 @theme inline {
   --default-font-family: "Jura", sans-serif;
   --font-family-heading: "Orbitron", sans-serif;
