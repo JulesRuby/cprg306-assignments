@@ -25,7 +25,6 @@ import { useState } from "react";
 function Page() {
   const [items, setItems] = useState(itemsData);
   const handleAddItem = (newItem) => {
-    console.log(newItem);
     setItems([...items, newItem]);
   };
 
