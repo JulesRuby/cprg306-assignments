@@ -2,10 +2,26 @@
 
 import { useState } from "react";
 
+import FunSelect from "@/components/forms/fun-select.js";
+
 function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
+
+  const categories = [
+    "produce",
+    "dairy",
+    "bakery",
+    "meat",
+    "frozen foods",
+    "canned goods",
+    "dry goods",
+    "beverages",
+    "snacks",
+    "household",
+    "other",
+  ];
 
   const increment = () => {
     if (quantity < 20) setQuantity(quantity + 1);
@@ -33,25 +49,34 @@ function NewItem({ onAddItem }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-md bg-gray-900 p-5">
+    <form
+      onSubmit={handleSubmit}
+      className="terminal-gradient-background scanlines text-lumo rounded-md p-5"
+    >
       <div className="mb-4">
-        <label className="mb-2 block text-white">Item Name</label>
+        <label className="mb-2 block" htmlFor="new-item-name">
+          Item Name
+        </label>
         <input
           type="text"
+          name="new-item-name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="w-full rounded border border-gray-700 bg-gray-800 px-3 py-2 text-white"
+          id="new-item-name"
+          className="w-full rounded border px-3 py-2"
           placeholder="Enter item name"
         />
       </div>
 
       <div className="mb-4">
-        <label className="mb-2 block text-white">Category</label>
-        <select
+        <label className="mb-2 block text-white" htmlFor="new-item-category">
+          Category
+        </label>
+        {/* <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="w-full rounded border border-gray-700 bg-gray-800 px-3 py-2 text-white"
+          className="w-full rounded border px-3 py-2"
         >
           <option value="produce">Produce</option>
           <option value="dairy">Dairy</option>
@@ -64,12 +89,26 @@ function NewItem({ onAddItem }) {
           <option value="snacks">Snacks</option>
           <option value="household">Household</option>
           <option value="other">Other</option>
-        </select>
+        </select> */}
+
+        <FunSelect
+          id="new-item-category"
+          name="new-item-category"
+          value={category}
+          onChange={setCategory}
+          options={categories}
+        />
       </div>
 
       <div className="mb-4">
-        <p className="mb-2 text-xl text-white">Quantity: {quantity}</p>
-        <div className="button-group flex justify-around gap-4 py-2 text-3xl text-black">
+        <label className="mb-2 text-xl" htmlFor="new-item-quantity">
+          Quantity: {quantity}
+        </label>
+        <div
+          id="new-item-quantity"
+          className="button-group flex justify-around gap-4 py-2 text-3xl"
+          name="new-item-quantity"
+        >
           <button
             type="button"
             className="h-[3rem] w-[4rem] cursor-pointer rounded-[10%] bg-orange-300 p-1 align-middle font-bold transition duration-200 ease-in-out hover:bg-green-300 active:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400/50"
