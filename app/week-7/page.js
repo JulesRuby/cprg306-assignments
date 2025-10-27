@@ -24,7 +24,10 @@ import { useState } from "react";
 
 function Page() {
   const [items, setItems] = useState(itemsData);
-  const handleAddItem = (newItem) => [...items, newItem];
+  const handleAddItem = (newItem) => {
+    console.log(newItem);
+    setItems([...items, newItem]);
+  };
 
   return (
     <main className="mx-auto max-w-xl p-4">
@@ -32,8 +35,8 @@ function Page() {
         <h1 className="text-xl">Shopping List</h1>
       </header>
 
-      <NewItem />
-      
+      <NewItem onAddItem={(newItem) => handleAddItem(newItem)} />
+
       <ItemList itemList={items} />
     </main>
   );
