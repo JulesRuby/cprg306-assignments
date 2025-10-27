@@ -18,7 +18,7 @@ function ItemList({ itemList }) {
   return (
     <section>
       <div className="mb-3 flex items-center gap-2">
-        <span className="text-sm text-gray-600">Sort by:</span>
+        <span className="text-solar text-sm text-gray-600">Sort by:</span>
         <button
           onClick={() => setSortBy("name")}
           className={`rounded border px-3 py-1 text-sm transition-colors ${
