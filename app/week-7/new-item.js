@@ -18,17 +18,14 @@ function NewItem({ onAddItem }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const item = {
-      id: Math.random().toString(36).substring(2, 9),
+    const newItemData = {
+      id: Math.random().toString(36).substring(2, 19),
       name,
       quantity,
       category,
     };
 
-    console.log(item);
-    console.log(onAddItem);
-
-    onAddItem(item);
+    onAddItem(newItemData);
 
     setName("");
     setQuantity(1);
