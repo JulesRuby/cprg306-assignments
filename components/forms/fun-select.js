@@ -47,8 +47,9 @@ function FunSelect({ value, onChange, options }) {
   };
 
   return (
-    <article className="terminal-gradient-background scanlines relative">
+    <article className="terminal-gradient-background scanlines blur-pane relative rounded-md border">
       {/* Button with ARIA attributes */}
+      {/* TODO Gotta get this keyDown working */}
       <button
         ref={buttonRef}
         type="button"
@@ -57,7 +58,7 @@ function FunSelect({ value, onChange, options }) {
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-labelledby="category-label"
-        className={`${isOpen ? "rounded-b-none border-b-[0px]" : ""} w-full rounded border px-3 py-2 text-left`}
+        className={`${isOpen ? "rounded-b-none border-b border-current" : ""} w-full cursor-pointer border-none bg-transparent px-3 py-2 text-left outline-none`}
       >
         {selectedOption?.label || "Select..."}
       </button>
@@ -68,7 +69,7 @@ function FunSelect({ value, onChange, options }) {
           role="listbox"
           aria-labelledby="category-label"
           tabIndex={-1}
-          className="terminal-gradient-background scanlines blur-pane absolute z-10 max-h-60 w-full overflow-auto rounded-md rounded-t-none border border-t-[0px] py-1"
+          className="max-h-60 overflow-auto border-t border-current py-1"
         >
           {optionsWithLabels.map((option, index) => (
             <li
@@ -83,10 +84,10 @@ function FunSelect({ value, onChange, options }) {
               onMouseEnter={() => setFocusedIndex(index)}
               className={`cursor-pointer px-4 py-2 ${
                 option.value === value
-                  ? "bg-blue-600 text-white"
+                  ? "bg-exhilarate text-vesper"
                   : focusedIndex === index
-                    ? "bg-gray-700 text-white"
-                    : "text-gray-300 hover:bg-gray-700"
+                    ? "rounded-md hover:border-3"
+                    : "hover:alpha-shudder hover:border-3"
               }`}
             >
               {option.label}
@@ -96,23 +97,6 @@ function FunSelect({ value, onChange, options }) {
       )}
     </article>
   );
-}
-
-{
-  /* <div>
-  <label id="category-label" className="mb-2 block text-white">
-    Category
-  </label>
-  <CustomSelect
-    value={category}
-    onChange={setCategory}
-    options={[
-      { value: "produce", label: "Produce" },
-      { value: "dairy", label: "Dairy" },
-      { value: "bakery", label: "Bakery" },
-    ]}
-  />
-</div>; */
 }
 
 export default FunSelect;
