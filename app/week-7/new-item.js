@@ -64,13 +64,13 @@ function NewItem({ onAddItem }) {
           onChange={(e) => setName(e.target.value)}
           required
           id="new-item-name"
-          className="w-full rounded border px-3 py-2"
+          className="placeholder:text-lumo w-full rounded border px-3 py-2"
           placeholder="Enter item name"
         />
       </div>
 
       <div className="mb-4">
-        <label className="mb-2 block text-white" htmlFor="new-item-category">
+        <label className="mb-2 block" htmlFor="new-item-category">
           Category
         </label>
         {/* <select
@@ -111,7 +111,7 @@ function NewItem({ onAddItem }) {
         >
           <button
             type="button"
-            className="h-[3rem] w-[4rem] cursor-pointer rounded-[10%] bg-orange-300 p-1 align-middle font-bold transition duration-200 ease-in-out hover:bg-green-300 active:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400/50"
+            className="hover:not-disabled:alpha-shudder hover:border-aether disabled:text-vesper disabled:bg-kinetic/40 center flex size-[2rem] cursor-pointer items-center justify-center rounded-[10%] border-3 p-1 leading-[.5]  font-bold transition duration-200 ease-in-out disabled:cursor-not-allowed disabled:border-0"
             onClick={decrement}
             disabled={quantity <= 1}
           >
@@ -119,7 +119,7 @@ function NewItem({ onAddItem }) {
           </button>
           <button
             type="button"
-            className="h-[3rem] w-[4rem] cursor-pointer rounded-[10%] bg-orange-300 p-1 font-bold transition duration-200 ease-in-out hover:bg-green-300 active:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400/50"
+            className="hover:not-disabled:alpha-shudder hover:border-aether disabled:text-vesper disabled:bg-kinetic/40 center flex size-[2rem] cursor-pointer items-center justify-center rounded-[10%] border-3 p-1 leading-none font-bold transition duration-200 ease-in-out disabled:cursor-not-allowed disabled:border-0"
             onClick={increment}
             disabled={quantity >= 20}
           >
@@ -130,7 +130,7 @@ function NewItem({ onAddItem }) {
 
       <button
         type="submit"
-        className="w-full rounded bg-blue-600 px-4 py-2 font-bold text-white hover:bg-blue-700"
+        className="hover:not-disabled:alpha-shudder-both hover:not-disabled:border-aether disabled:text-vesper disabled:bg-kinetic/40 bg-exhilarate/50 h-[3rem] w-full cursor-pointer rounded border-3 p-1 font-bold transition duration-200 ease-in-out hover:not-disabled:bg-transparent disabled:cursor-not-allowed disabled:border-0"
       >
         Add Item
       </button>
