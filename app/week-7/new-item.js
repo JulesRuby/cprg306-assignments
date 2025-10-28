@@ -101,7 +101,7 @@ function NewItem({ onAddItem }) {
       </div>
 
       <div className="mb-4">
-        <label className="mb-2 text-xl" htmlFor="new-item-quantity">
+        <label className="mb-2 block text-center" htmlFor="new-item-quantity">
           Quantity: {quantity}
         </label>
         <div
@@ -111,7 +111,7 @@ function NewItem({ onAddItem }) {
         >
           <button
             type="button"
-            className="hover:not-disabled:alpha-shudder hover:border-aether disabled:text-vesper disabled:bg-kinetic/40 center flex size-[2rem] cursor-pointer items-center justify-center rounded-[10%] border-3 p-1 leading-[.5]  font-bold transition duration-200 ease-in-out disabled:cursor-not-allowed disabled:border-0"
+            className="hover:not-disabled:alpha-shudder hover:border-aether disabled:text-vesper disabled:bg-kinetic/40 center flex size-[2rem] cursor-pointer items-center justify-center rounded-[10%] border-3 p-1 leading-[.5] font-bold transition duration-200 ease-in-out disabled:cursor-not-allowed disabled:border-0"
             onClick={decrement}
             disabled={quantity <= 1}
           >
