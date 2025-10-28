@@ -43,8 +43,8 @@ export default function Home() {
               Week 7 - Assignment Page
             </Link>
           </li> */}
-          {routes.map((route) => (
-            <li key={route.path}>
+          {routes.map((route, idx) => (
+            <li key={`${route.path} - ${idx}`}>
               <Link href={route} className="">
                 {`${route.replace("-", " ").replace(/^\/w/, "W")} - Assignment Page`}
               </Link>
