@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 import ItemList from "./item-list.js";
+import MealIdeas from "./meal-ideas.js";
 
 
 function Page() {
@@ -13,6 +14,7 @@ function Page() {
         <h1 className="text-xl">Fetching Data</h1>
       </header>
 
+      <MealIdeas />
 
       <ItemList itemList={[]} />
     </main>
