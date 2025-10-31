@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Item from "./item";
 
-function ItemList({ itemList }) {
+function ItemList({ itemList, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
 
   const sortedItems = [...itemList].sort((a, b) => {
@@ -41,12 +41,13 @@ function ItemList({ itemList }) {
         </button>
       </div>
       <ul className="flex flex-col overflow-hidden">
-        {sortedItems.map(({ id, name, category, quantity }) => (
+        {sortedItems.map((item) => (
           <Item
-            key={`item-${id}`}
-            name={name}
-            category={category}
-            quantity={quantity}
+            key={`item-${item.id}`}
+            name={item.name}
+            category={item.category}
+            quantity={item.quantity}
+            onSelect={() => onItemSelect(item)}
           />
         ))}
       </ul>

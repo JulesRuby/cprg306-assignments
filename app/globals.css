@@ -200,6 +200,7 @@
 
 @utility alpha-shudder {
   animation: alphaShudder 1.6s infinite;
+
 }
 
 @utility alpha-shudder-box {
