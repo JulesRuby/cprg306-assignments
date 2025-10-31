@@ -25,15 +25,19 @@ function MealIdeas({ ingredient }) {
 
   return (
     <article>
-      <h2 className="mb-2 text-lg font-semibold">
-        Meal Ideas with {ingredient}
-      </h2>
+      <header>
+        <h2 className="mb-2 text-lg font-semibold">Meal Ideas!</h2>
+      </header>
       {meals.length === 0 ? (
         <p>No meal ideas found.</p>
       ) : (
-        <code>
-          <pre>{JSON.stringify(meals, null, 2)}</pre>
-        </code>
+        <ul>
+          {meals.map((meal) => (
+            <li key={meal.idMeal} className="mb-2">
+              <p className="font-bold">{meal.strMeal}</p>
+            </li>
+          ))}
+        </ul>
       )}
     </article>
   );
