@@ -51,9 +51,9 @@ function NewItem({ onAddItem }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="terminal-gradient-background scanlines text-lumo rounded-md p-5"
+      className="terminal-gradient-background scanlines text-lumo relative rounded-md p-5"
     >
-      <div className="mb-4">
+      <div className="mb-4 relative">
         <label className="mb-2 block" htmlFor="new-item-name">
           Item Name
         </label>
