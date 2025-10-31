@@ -47,7 +47,7 @@ function FunSelect({ value, onChange, options }) {
   };
 
   return (
-    <article className="terminal-gradient-background scanlines blur-pane relative rounded-md border">
+    <article className="terminal-gradient-background scanlines blur-pane rounded-md border">
       {/* Button with ARIA attributes */}
       {/* TODO Gotta get this keyDown working */}
       <button
