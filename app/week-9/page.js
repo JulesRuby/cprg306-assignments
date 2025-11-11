@@ -1,16 +1,17 @@
-import CounterDemoSection from './CounterDemoSection';
-
-function Page() {
-
+import AuthSection from "./AuthSection";
+import LoginSection from "./LoginSection";
+export default function Page() {
   return (
-    <main className="mx-auto max-w-xl p-4">
-      <header className="mb-3 text-2xl font-bold">
-        <h1 className="text-xl">Week 9</h1>
+    <main>
+      <header className="my-4">
+        <h1 className="text-2xl">Oh baby, we're doing some funny auth stuff</h1>
+        <p>
+          I'm the <span class="text-kinetic">firestarter</span>
+        </p>
       </header>
 
-      <CounterDemoSection />
+      <AuthSection />
+      {/* <LoginSection /> */}
     </main>
   );
 }
-
-export default Page;

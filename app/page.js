@@ -5,6 +5,14 @@ import getAllRoutes from "@/lib/routes";
 
 export default function Home() {
   const routes = getAllRoutes();
+  // swap any of the routes not beginning with /week- to the end end of the array
+  const sortedRoutes = [...routes].sort((a, b) => {
+    const aIsWeek = a.startsWith("/week-");
+    const bIsWeek = b.startsWith("/week-");
+    if (aIsWeek && !bIsWeek) return -1;
+    if (!aIsWeek && bIsWeek) return 1;
+    return 0;
+  });
 
   return (
     <header>
@@ -43,10 +51,10 @@ export default function Home() {
               Week 7 - Assignment Page
             </Link>
           </li> */}
-          {routes.map((route, idx) => (
+          {sortedRoutes.map((route, idx) => (
             <li key={`${route.path} - ${idx}`}>
-              <Link href={route} className="">
-                {`${route.replace("-", " ").replace(/^\/w/, "W")} - Assignment Page`}
+              <Link href={route} className="capitalize">
+                {`${route.replace("-", " ").replace(/^\//, "")} - Assignment Page`}
               </Link>
             </li>
           ))}

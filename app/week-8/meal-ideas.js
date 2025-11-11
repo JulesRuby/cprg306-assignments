@@ -15,11 +15,11 @@ const fetchMealIdeas = async (ingredient = "chicken") => {
 function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
 
+  const loadMealIdeas = async () => {
+    const fetchedMeals = await fetchMealIdeas(ingredient);
+    setMeals(fetchedMeals);
+  };
   useEffect(() => {
-    const loadMealIdeas = async () => {
-      const fetchedMeals = await fetchMealIdeas(ingredient);
-      setMeals(fetchedMeals);
-    };
     loadMealIdeas();
   }, [ingredient]);
 

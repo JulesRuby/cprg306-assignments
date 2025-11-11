@@ -10,6 +10,8 @@
     "format": "prettier --write 'app/**/*.{js,jsx,ts,tsx,css,html}’"
   },
   "dependencies": {
+    "encoding": "^0.1.13",
+    "firebase": "^12.5.0",
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0"
