@@ -3,6 +3,7 @@ import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettier from "eslint-plugin-prettier";
+import eslintPluginTailwindcss from "eslint-plugin-tailwindcss";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,7 +17,7 @@ const eslintConfig = [
   {
     plugins: {
       prettier: eslintPluginPrettier,
-      tailwindcss: "eslint-plugin-tailwindcss",
+      tailwindcss: eslintPluginTailwindcss,
     },
     rules: {
       "prettier/prettier": [
