@@ -37,8 +37,8 @@ const firebaseConfig = {
   },
 };
 
-// console.log("Current environment:", appEnv);
-// console.log("Firebase config:", firebaseConfig[appEnv]);
+console.log("Current environment:", appEnv);
+console.log("Firebase config:", firebaseConfig[appEnv]);
 // console.log("Firebase config no env:", firebaseConfig);
 
 // Initialize Firebase
