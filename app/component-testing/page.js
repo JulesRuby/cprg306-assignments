@@ -30,7 +30,7 @@ function Page() {
         </header>
 
         <div className="w-100">
-          <VaporButton onClick={() => console.log("CLICK!")}></VaporButton>
+          <VaporButton></VaporButton>
         </div>
       </section>
     </main>
