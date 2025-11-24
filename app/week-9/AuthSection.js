@@ -1,5 +1,7 @@
 "use client";
+import Link from "next/link";
 import FirebaseLoginForm from "@/components/forms/FirebaseLoginForm";
+import GithubLoginForm from "@/components/forms/GithubLoginForm";
 import FirebaseSignUpForm from "@/components/forms/FirebaseSignupForm";
 import { useAuth } from "../contexts/AuthContext";
 import { logout } from "@/lib/auth/authHelpers";
@@ -23,6 +25,14 @@ export default function AuthDemoSection() {
             <p className="font-semibold">Logged in as: {authUser.email}</p>
             <p className="text-sm">User ID: {authUser.uid}</p>
           </div>
+
+          <Link
+            href="/week-9/shopping-list"
+            className="flex-1 rounded bg-blue-600 px-4 py-2 text-center text-white hover:bg-blue-700"
+          >
+            Go to Shopping List
+          </Link>
+
           <button
             onClick={handleLogout}
             className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-700"
@@ -32,6 +42,7 @@ export default function AuthDemoSection() {
         </div>
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
+          <GithubLoginForm />
           <FirebaseSignUpForm />
           <FirebaseLoginForm />
         </div>

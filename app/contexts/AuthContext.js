@@ -2,7 +2,7 @@
 // context stuff
 import { createContext, useContext, useEffect, useState } from "react";
 // firebase sdk auth variables
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signInWithPopup, signOut, GithubAuthProvider } from "firebase/auth";
 // our auth
 import { auth } from "../firebase/config";
 
@@ -11,6 +11,15 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [authUser, setAuthUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const gitHubSignIn = () => {
+    const provider = new GithubAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  const firebaseSignOut = () => {
+    return signOut(auth);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(
@@ -32,19 +41,19 @@ export function AuthProvider({ children }) {
       }
     );
     return () => {
-      console.log("Cleaning up listener");
+      console.log("UNsubscribing from auth listener");
       unsubscribe();
     };
-  }, []);
+  }, [authUser]);
 
   return (
-    <AuthContext.Provider value={{ authUser, loading }}>
+    <AuthContext.Provider value={{ authUser, loading, gitHubSignIn, firebaseSignOut }}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-export function useAuth() {
+export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
     throw new Error(
