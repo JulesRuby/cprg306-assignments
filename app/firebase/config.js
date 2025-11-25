@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -46,8 +47,12 @@ const app = !getApps().length
   ? initializeApp(firebaseConfig[appEnv])
   : getApp();
 let analytics;
+
 if (typeof window !== "undefined") {
   analytics = getAnalytics(app);
 }
+
 const auth = getAuth(app);
-export { app, auth, analytics };
+const db = getFirestore(app);
+
+export { app, auth, analytics, db };
