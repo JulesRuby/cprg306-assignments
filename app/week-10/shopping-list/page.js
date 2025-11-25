@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 import ItemList from "./item-list.js";
+import NewItem from "./new-item.js";
 import MealIdeas from "./meal-ideas.js";
 
 import { useAuth } from "@/app/contexts/AuthContext";
