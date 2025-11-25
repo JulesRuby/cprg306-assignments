@@ -9,12 +9,11 @@ export async function getItems(userId) {
     // Reference to the items subcollection for this user
     const itemsCollectionRef = collection(db, "users", userId, "items");
 
-    // Create a query (you can add ordering, filtering, etc. here if needed)
     const firestoreQuery = query(itemsCollectionRef);
 
     const querySnapshot = await getDocs(firestoreQuery);
 
-    // For each document, add an object to items array with id and data
+    // add an object to items array with id and data
     querySnapshot.forEach((doc) => {
       items.push({
         id: doc.id,
@@ -33,8 +32,6 @@ export async function getItems(userId) {
 export async function addItem(userId, item) {
   try {
     const itemsCollectionRef = collection(db, "users", userId, "items");
-
-    // Add the item to the subcollection
     const docRef = await addDoc(itemsCollectionRef, item);
 
     return docRef.id;

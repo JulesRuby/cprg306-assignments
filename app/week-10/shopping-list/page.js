@@ -76,15 +76,6 @@ function Page() {
 
   return (
     <main className="mx-auto max-w-xl p-4">
-      {/* <header className="mb-3 text-2xl font-bold">
-        <h1 className="text-xl">Fetching Data</h1>
-      </header>
-
-      <ItemList itemList={items} onItemSelect={handleItemSelect} />
-
-      <section>
-        <MealIdeas ingredient={selectedItemName} />
-      </section> */}
       <header className="mb-6">
         <div className="mb-4 flex items-center justify-between">
           <h1 className="text-3xl font-bold">Shopping List</h1>

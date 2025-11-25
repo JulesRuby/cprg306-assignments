@@ -73,23 +73,6 @@ function NewItem({ onAddItem }) {
         <label className="mb-2 block" htmlFor="new-item-category">
           Category
         </label>
-        {/* <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="w-full rounded border px-3 py-2"
-        >
-          <option value="produce">Produce</option>
-          <option value="dairy">Dairy</option>
-          <option value="bakery">Bakery</option>
-          <option value="meat">Meat</option>
-          <option value="frozen foods">Frozen Foods</option>
-          <option value="canned goods">Canned Goods</option>
-          <option value="dry goods">Dry Goods</option>
-          <option value="beverages">Beverages</option>
-          <option value="snacks">Snacks</option>
-          <option value="household">Household</option>
-          <option value="other">Other</option>
-        </select> */}
 
         <FunSelect
           id="new-item-category"
