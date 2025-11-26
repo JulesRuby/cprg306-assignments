@@ -45,7 +45,7 @@ export default function Home() {
         <ul className="nav-list">
           {sortMattedRoutes.map((route, idx) => (
             <li key={`${route.path} - ${idx}`}>
-              <Link href={route} className="capitalize">
+              <Link href={route.path} className="capitalize">
                 {`${route.displayName} - Assignment Page`}
               </Link>
             </li>
